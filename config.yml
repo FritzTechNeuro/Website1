@@ -1,3 +1,4 @@
+config: _config.yml,config.yml
 # Site settings
 title: Ryan's Neurojourney
 description: My journey to revolutionize the way we view neuroscience through open communication of its ideas and breaking down papers in the field of human cognitive neuroscience.
