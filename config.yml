@@ -23,15 +23,15 @@ nav_links:
 
 # Social links
 social_links:
-  email: "youremail@example.com"
-  github: "yourusername"
-  twitter: "yourusername"
-  linkedin: "yourusername"
+  email: "rfritz002@gmail.com"
+  github: "FritzTechNeuro"
+  twitter: "R2Fritz"
+  linkedin: "ryan-fritz-9212b9187"
   
 # Author
 author:
   name: Ryan
-  bio: Neuroscience Engineer
+  bio: Neuroscientist and Engineer
   
 # Layouts
 defaults:
