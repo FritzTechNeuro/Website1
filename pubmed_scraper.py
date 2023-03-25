@@ -24,7 +24,9 @@ $query_string = http_build_query([
 ]);
 
 // Send the request to PubMed API
+
 $curl = curl_init();
+curl_setopt($curl, CURLOPT_HTTPHEADER, ['Accept: application/xml']);
 curl_setopt($curl, CURLOPT_URL, "{$pubmed_url}?{$query_string}");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($curl);
@@ -32,27 +34,39 @@ curl_close($curl);
 
 // Parse the response XML
 $xml = simplexml_load_string($response);
-$docsum = $xml->DocSum;
 
-// Extract the paper details
-$title = (string) $docsum->Item[1]->value;
-$authors = (string) $docsum->Item[2]->value;
-$journal = (string) $docsum->Item[3]->value;
-$citations = (int) $docsum->Item[4]->value;
+if (isset($xml->DocSum)) {
+    // Extract the paper details
+    $docsum = $xml->DocSum;
+    $title = (string) $docsum->Item[0]->Title;
+    $authors = (string) $docsum->Item[0]->AuthorList->Author[0]->Name;
+    $journal = (string) $docsum->Item[0]->FullJournalName;
+    $citations = (int) $docsum->Item[0]->LstNIHGrantCount->GrantCount;
 
-// Generate the HTML code for the paper
-$html = "<html><head><title>{$title}</title></head><body>";
-$html .= "<ul><li><strong>{$title}</strong><br>";
-$html .= "{$authors}<br>";
-$html .= "{$journal} ({$citations} citations)</li></ul>";
-$html .= "</body></html>";
+    // Get the abstract text from the Pubmed API
+    $id = (string) $docsum->Id;
+    $abstract_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id={$id}&retmode=xml";
+    $abstract_response = curl_exec(curl_init($abstract_url));
+    $abstract_xml = simplexml_load_string($abstract_response);
+    $abstract = (string) $abstract_xml->PubmedArticle->MedlineCitation->Article->Abstract->AbstractText;
 
-// Write the HTML code to a file
-$filename = "neuroscience.html";
-$file = fopen($filename, 'w');
-fwrite($file, $html);
-fclose($file);
+    // Generate the HTML code for the paper
+    $html = "<html><head><title>{$title}</title></head><body>";
+    $html .= "<ul><li><strong>{$title}</strong><br>";
+    $html .= "{$authors}<br>";
+    $html .= "{$journal} ({$citations} citations)<br>";
+    $html .= "{$abstract}</li></ul>";
+    $html .= "</body></html>";
 
-echo "Static HTML page generated: {$filename}";
+    // Write the HTML code to a file
+    $filename = "neuroscience.html";
+    $file = fopen($filename, 'w');
+    fwrite($file, $html);
+    fclose($file);
+
+    echo "Static HTML page generated: {$filename}";
+} else {
+    echo "No results found.";
+}
 
 ?>
