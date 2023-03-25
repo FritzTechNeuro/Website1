@@ -1,8 +1,8 @@
 # Site settings
-title: My Website
-description: This is my awesome website.
-baseurl: "" # the subpath of your site, e.g. /blog/ or "" for the root domain
-url: "https://myusername.github.io"
+title: FritzTech Neuro
+description: Ryan's Neurojourney
+baseurl: "/Personal-Portfolio" # the subpath of your site, e.g. /blog/ or "" for the root domain
+url: "https://fritztechneuro.github.io"
 
 # Build settings
 markdown: kramdown
