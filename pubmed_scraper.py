@@ -41,9 +41,18 @@ $journal = (string) $docsum->Item[3]->value;
 $citations = (int) $docsum->Item[4]->value;
 
 // Generate the HTML code for the paper
-$html = "<ul><li><strong>{$title}</strong><br>";
+$html = "<html><head><title>{$title}</title></head><body>";
+$html .= "<ul><li><strong>{$title}</strong><br>";
 $html .= "{$authors}<br>";
 $html .= "{$journal} ({$citations} citations)</li></ul>";
+$html .= "</body></html>";
 
-// Print the HTML code
-echo $html;
+// Write the HTML code to a file
+$filename = "neuroscience.html";
+$file = fopen($filename, 'w');
+fwrite($file, $html);
+fclose($file);
+
+echo "Static HTML page generated: {$filename}";
+
+?>
