@@ -1,17 +1,72 @@
 # Site settings
-title: FritzTech Neuro
-description: Ryan's Neurojourney
+title: Ryan's Neurojourney
+description: My journey to revolutionize the way we view neuroscience through open communication of its ideas and breaking down papers in the field of human cognitive neuroscience.
+url: https://fritztechneuro.github.io/Personal-Portfolio/
 baseurl: "/Personal-Portfolio" # the subpath of your site, e.g. /blog/ or "" for the root domain
-url: "https://fritztechneuro.github.io"
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-minimal
-
-# Plugins
+theme: minimal-mistakes-jekyll
 plugins:
-  - jekyll-sitemap
-  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation links
+nav_links:
+  - title: About Me
+    url: /about/
+  - title: Projects
+    url: /projects/
+  - title: Blog
+    url: /blog/
+  - title: Contact
+    url: /contact/
+
+# Social links
+social_links:
+  email: "youremail@example.com"
+  github: "yourusername"
+  twitter: "yourusername"
+  linkedin: "yourusername"
+  
+# Author
+author:
+  name: Ryan
+  bio: Neuroscience Engineer
+  
+# Layouts
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _posts
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+  # _featured_categories
+  - scope:
+      path: "_featured_categories"
+      type: pages
+    values:
+      layout: grid
+      title: Categories
+      permalink: /categories/
+      
+# Jekyll SEO
+seo:
+  name: Ryan's Neurojourney
+  slogan: My journey to revolutionize the way we view neuroscience through open communication of its ideas and breaking down papers in the field of human cognitive neuroscience.
+  logo: /assets/images/logo.png
+  google_analytics: UA-XXXXXX-X
 
 # Exclude files/folders from build
 exclude:
