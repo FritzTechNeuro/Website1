@@ -60,3 +60,43 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+  padding: 10px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  height: 150px;
+}
+
+button[type=submit] {
+  background-color: #2980b9;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type=submit]:hover {
+  background-color: #1c6ca9;
+}
