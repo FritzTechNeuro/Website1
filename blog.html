@@ -54,12 +54,10 @@
       const articleLink = document.getElementById("article-link");
       const abstract = document.getElementById("abstract");
 
-      // Insert the link to the article here
-      const articleUrl = "https://pubmed.ncbi.nlm.nih.gov/35352057/";
-
       articleLink.addEventListener("click", function(event) {
         event.preventDefault();
-        fetch(articleUrl)
+        const url = "https://pubmed.ncbi.nlm.nih.gov/35352057/"; // Replace this with the actual PubMed article link
+        fetch(url)
           .then(response => response.text())
           .then(data => {
             const parser = new DOMParser();
