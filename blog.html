@@ -28,8 +28,8 @@
           <li>
             <h3>Week of [Date]</h3>
             <h4>Neuroscience Literature Review</h4>
-            <p>[Summary of journal article]</p>
-            <p><a href="[Link to article]">Read more</a></p>
+            <p id="abstract"></p>
+            <p><a id="article-link" href="#">Read more</a></p>
           </li>
           <li>
             <h3>Week of [Date]</h3>
@@ -50,5 +50,31 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
+    <script>
+      const articleLink = document.getElementById("article-link");
+      const abstract = document.getElementById("abstract");
+
+      // Insert the link to the article here
+      const articleUrl = "https://pubmed.ncbi.nlm.nih.gov/35352057/";
+
+      articleLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        fetch(articleUrl)
+          .then(response => response.text())
+          .then(data => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+            const title = doc.querySelector(".article-title").textContent;
+            const authors = Array.from(doc.querySelectorAll(".authors-list .fullname"))
+              .map(author => author.textContent.trim())
+              .join(", ");
+            const abstractText = doc.querySelector(".abstract-content p").textContent;
+            abstract.innerHTML = `<strong>${title}</strong><br>${authors}<br>${abstractText}`;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+    </script>
   </body>
 </html>
