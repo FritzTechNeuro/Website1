@@ -50,29 +50,27 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
-    <script>
-      const articleLink = document.getElementById("article-link");
-      const abstract = document.getElementById("abstract");
+   <script>
+  const articleLink = document.getElementById("article-link");
+  const abstract = document.getElementById("abstract");
 
-      articleLink.addEventListener("click", function(event) {
-        event.preventDefault();
-        const url = "https://pubmed.ncbi.nlm.nih.gov/35352057/"; // Replace this with the actual PubMed article link
-        fetch(url)
-          .then(response => response.text())
-          .then(data => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data, "text/html");
-            const title = doc.querySelector(".article-title").textContent;
-            const authors = Array.from(doc.querySelectorAll(".authors-list .fullname"))
-              .map(author => author.textContent.trim())
-              .join(", ");
-            const abstractText = doc.querySelector(".abstract-content p").textContent;
-            abstract.innerHTML = `<strong>${title}</strong><br>${authors}<br>${abstractText}`;
-          })
-          .catch(error => {
-            console.error(error);
-          });
+  articleLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    const url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=35352057"; // Replace this with the actual PubMed article ID
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, "text/xml");
+        const title = doc.querySelector("ArticleTitle").textContent;
+        const authors = Array.from(doc.querySelectorAll("Author"))
+          .map(author => `${author.querySelector("LastName").textContent} ${author.querySelector("Initials").textContent}`)
+          .join(", ");
+        const abstractText = doc.querySelector("AbstractText").textContent;
+        abstract.innerHTML = `<strong>${title}</strong><br>${authors}<br>${abstractText}`;
+      })
+      .catch(error => {
+        console.error(error);
       });
-    </script>
-  </body>
-</html>
+  });
+</script>
