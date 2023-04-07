@@ -1,15 +1,16 @@
-# GitHub Pages settings
-remote_theme: "pmarsceill/just-the-docs"
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
 # Site settings
 title: "Ryan Fritz"
 description: "Neuroscientist and Data Scientist"
 url: "https://fritztechneuro.github.io/Personal-Portfolio"
 baseurl: "/Personal-Portfolio"
 google_analytics: UA-123456789-1
+
+# Minimal Mistakes theme settings
+remote_theme: mmistakes/minimal-mistakes
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Just the Docs settings
 # Customize the theme by modifying these values
