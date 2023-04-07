@@ -1,0 +1,33 @@
+# GitHub Pages settings
+remote_theme: "pmarsceill/just-the-docs"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Site settings
+title: "Ryan Fritz"
+description: "Neuroscientist and Data Scientist"
+url: "https://fritztechneuro.github.io/Personal-Portfolio"
+baseurl: "/Personal-Portfolio"
+google_analytics: UA-123456789-1
+
+# Just the Docs settings
+# Customize the theme by modifying these values
+just_the_docs:
+  site_title: "Ryan Fritz"
+  search_enabled: true
+  accent_color: "#0066cc"
+  google_analytics:
+    tracking_id: UA-123456789-1
+  github:
+    is_project_page: false
+  header:
+    title: "Ryan Fritz"
+    logo: "/assets/images/logo.png"
+    social:
+      - url: "https://www.linkedin.com/in/ryan-fritz-7132aa47/"
+        icon: "fab fa-linkedin"
+      - url: "https://github.com/FritzTechNeuro"
+        icon: "fab fa-github"
+      - url: "https://twitter.com/FritzTechNeuro"
+        icon: "fab fa-twitter"
