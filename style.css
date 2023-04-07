@@ -6,17 +6,24 @@ body {
 
 nav ul {
   background-color: #2980b9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 nav ul li {
-  display: inline-block;
+  margin: 0 10px;
 }
 
 nav ul li a {
   color: #ffffff;
-  display: block;
-  padding: 15px 20px;
   text-decoration: none;
+  font-size: 1.2em;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -100,6 +107,7 @@ button[type=submit] {
 button[type=submit]:hover {
   background-color: #1c6ca9;
 }
+
 #social-media {
   font-size: 1.2em;
 }
