@@ -1,15 +1,15 @@
 body {
-  background-color: #E8F5FE;
-  color: #444444;
+  background-color: #ffffff;
+  color: #333333;
   font-family: Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
 }
 
 /* Navigation bar */
-/* Navigation bar */
 nav {
-  background-color: #3b3b3b;
-  color: #fff;
+  background-color: #333333;
+  color: #ffffff;
   font-size: 18px;
   height: 60px;
   display: flex;
@@ -41,7 +41,7 @@ nav ul li a {
   display: block;
   padding: 0 10px;
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   height: 60px;
   line-height: 60px;
   transition: background-color 0.3s ease;
