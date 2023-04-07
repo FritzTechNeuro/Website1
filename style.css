@@ -2,7 +2,9 @@ body {
   background-color: #E8F5FE;
   color: #444444;
   font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
+
 
 /* Navigation bar */
 nav {
@@ -124,6 +126,6 @@ button[type=submit]:hover {
   background-color: #1c6ca9;
 }
 
-#social-media {
+.social-media {
   font-size: 1.2em;
 }
