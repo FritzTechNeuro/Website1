@@ -6,8 +6,15 @@ body {
 }
 
 /* Navigation bar */
+/* Navigation bar */
 nav {
-  background-color: #333;
+  background-color: #3b3b3b;
+  color: #fff;
+  font-size: 18px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,29 +24,35 @@ nav {
 
 nav ul {
   display: flex;
-  list-style: none;
   margin: 0;
   padding: 0;
-  justify-content: space-between;
-  align-items: center;
+  list-style: none;
 }
 
 nav ul li {
-  margin: 0 20px;
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
 }
 
 nav ul li a {
   display: block;
-  color: #fff;
-  font-size: 18px;
-  text-transform: uppercase;
+  padding: 0 10px;
   text-decoration: none;
-  padding: 20px 0;
-  transition: all 0.3s ease;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #ffc107;
+  background-color: #ffc107;
+}
+
+nav ul li.active a {
+  background-color: #ffc107;
 }
 
 header {
