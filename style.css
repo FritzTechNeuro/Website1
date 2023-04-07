@@ -5,7 +5,6 @@ body {
   line-height: 1.5;
 }
 
-
 /* Navigation bar */
 nav {
   background-color: #333;
@@ -42,7 +41,6 @@ nav ul li a {
 nav ul li a:hover {
   color: #ffc107;
 }
-
 
 header {
   background-color: #2980b9;
@@ -128,4 +126,9 @@ button[type=submit]:hover {
 
 .social-media {
   font-size: 1.2em;
+}
+
+/* Add this code to display the links and icons below the navigation bar */
+nav + * {
+  margin-top: 80px;
 }
