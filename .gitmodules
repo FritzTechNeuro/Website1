@@ -1,0 +1,3 @@
+[submodule "dist"]
+    path = dist
+    url = git:https://github.com/FritzTechNeuro/Personal-Portfolio
