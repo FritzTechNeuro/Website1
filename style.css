@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   background-color: #ffffff;
   color: #333333;
@@ -141,7 +142,26 @@ button[type=submit]:hover {
   font-size: 1.2em;
 }
 
-/* Add this code to display the links and icons below the navigation bar */
+/* Custom styles for personal portfolio */
 nav + * {
   margin-top: 80px;
 }
+
+.header-intro {
+  padding: 120px 0;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.header-intro h1 {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.header-intro h2 {
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.header-intro
