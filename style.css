@@ -103,6 +103,7 @@ a:hover {
   overflow: hidden;
   width: 200px;
   height: 200px;
+  margin: 0 auto;
 }
 
 .img-circle img {
@@ -160,24 +161,4 @@ button[type=submit]:hover {
 
 /* Custom styles for personal portfolio */
 nav + * {
-  margin-top: 80px;
-}
-
-.header-intro {
-  padding: 120px 0;
-  text-align: center;
-  background-color: #f7f7f7;
-}
-
-.header-intro h1 {
-  font-size: 60px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.header-intro h2 {
-  font-size: 30px;
-  margin-bottom: 50px;
-}
-
-.header-intro
+ 
