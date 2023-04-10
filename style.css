@@ -160,5 +160,62 @@ button[type=submit]:hover {
 }
 
 /* Custom styles for personal portfolio */
-nav + * {
- 
+
+/* Mobile compatibility */
+@media only screen and (max-width: 600px) {
+/* Navigation bar */
+nav {
+flex-wrap: wrap;
+height: auto;
+}
+
+nav ul {
+flex-direction: column;
+margin-top: 60px;
+display: none;
+}
+
+nav ul.show {
+display: flex;
+}
+
+nav ul li {
+margin-right: 0;
+margin-bottom: 10px;
+}
+
+nav ul li a {
+background-color: #333333;
+color: #ffffff;
+height: 40px;
+line-height: 40px;
+transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+background-color: #ffc107;
+}
+
+nav ul li.active a {
+background-color: #ffc107;
+}
+
+.toggle-nav {
+height: 60px;
+width: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+top: 0;
+right: 0;
+cursor: pointer;
+}
+
+.toggle-nav:before {
+content: '\f0c9';
+font-family: FontAwesome;
+font-size: 24px;
+color: #ffffff;
+}
+}
