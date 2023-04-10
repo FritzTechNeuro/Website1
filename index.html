@@ -6,13 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="BRAIN2_fav.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <style>
+      /* Center the name and job status */
+      #name {
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      #job-status {
+        text-align: center;
+        font-size: 1.5em;
+      }
+    </style>
   </head>
   <body>
+    <div class="nav-container" id="nav-container"></div>
 
     <header>
-      <h1>Ryan Fritz: Exploring Neuroscience and Science Communication</h1>
+      <h1></h1>
     </header>
 
     <main>
@@ -46,9 +59,11 @@
         <h2>Contact</h2>
         <p>Connect with me on LinkedIn or Twitter:</p>
         <div class="social-media">
+         
+
+        <div class="social-media">
           <a href="https://www.linkedin.com/in/ryan-fritz-9212b9187/"><i class="fab fa-linkedin fa-2x"></i></a>
           <a href="https://twitter.com/R2Fritz"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="https://github.com/FritzTechNeuro"><i class="fab fa-github fa-2x"></i></a>
         </div>
       </section>
     </main>
@@ -58,14 +73,15 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
-
-
-    <footer
-
-      <p>&copy; [2023] [Ryan Fritz]. All rights reserved.</p>
-    </footer>
-
-    <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
-
+    <script>
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("nav-container").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "nav.html", true);
+  xhttp.send();
+</script>
   </body>
 </html>
