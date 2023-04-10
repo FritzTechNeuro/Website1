@@ -11,6 +11,9 @@
   </head>
   <body>
     <nav class="nav-container" id="nav-container"></nav>
+<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+  <i class="fa fa-bars"></i>
+</a>
 
     <header>
       <h1>Ryan Fritz: Exploring Neuroscience and Science Communication</h1>
@@ -69,6 +72,16 @@
   };
   xhttp.open("GET", "nav.html", true);
   xhttp.send();
+</script>
+<script>
+  function myFunction() {
+    var x = document.getElementById("nav-container");
+    if (x.className === "nav-container") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-container";
+    }
+  }
 </script>
 
   </body>
