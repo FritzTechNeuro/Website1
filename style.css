@@ -1,222 +1,164 @@
 /* Global styles */
 body {
-  background-color: #f4f4f4;
-  color: #333333;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+background-color: #f4f4f4;
+color: #333333;
+font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+line-height: 1.5;
 }
 
 /* Navigation bar */
 nav {
-  background-color: #333333;
-  color: #ffffff;
-  font-size: 18px;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
+background-color: #333333;
+color: #ffffff;
+font-size: 18px;
+height: 60px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 999;
 }
 
 nav ul {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+background-color: #111;
 }
 
 nav ul li {
-  margin-right: 20px;
+margin-right: 20px;
 }
 
 nav ul li:last-child {
-  margin-right: 0;
+margin-right: 0;
 }
 
 nav ul li a {
-  display: block;
-  padding: 0 10px;
-  text-decoration: none;
-  color: #ffffff;
-  height: 60px;
-  line-height: 60px;
-  transition: background-color 0.3s ease;
+display: block;
+padding: 0 10px;
+text-decoration: none;
+color: #ffffff;
+height: 60px;
+line-height: 60px;
+transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: #ffc107;
+background-color: #ffc107;
 }
 
 nav ul li.active a {
-  background-color: #ffc107;
+background-color: #ffc107;
 }
 
 header {
-  background-color: #2980b9;
-  color: #ffffff;
-  padding: 50px;
-  text-align: center;
+background-color: #2980b9;
+color: #ffffff;
+padding: 50px;
+text-align: center;
 }
 
 h1 {
-  font-size: 3em;
-  margin: 0;
+font-size: 3em;
+margin: 0;
 }
 
 h2 {
-  color: #2980b9;
-  font-size: 2em;
-  margin-top: 50px;
+color: #2980b9;
+font-size: 2em;
+margin-top: 50px;
 }
 
 p {
-  font-size: 1.2em;
-  line-height: 1.5;
+font-size: 1.2em;
+line-height: 1.5;
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+list-style-type: none;
+margin: 0;
+padding: 0;
 }
 
 li {
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 a {
-  color: #2980b9;
-  text-decoration: none;
+color: #2980b9;
+text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
 
 .img-circle {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+border-radius: 50%;
+overflow: hidden;
+width: 200px;
+height: 200px;
+margin: 0 auto;
 }
 
 .img-circle img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+width: 100%;
+height: auto;
+border-radius: 50%;
+border: 3px solid white;
+box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
-
 form {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 label {
-  font-size: 1.2em;
-  margin-top: 20px;
+font-size: 1.2em;
+margin-top: 20px;
 }
 
 input[type=text],
 input[type=email],
 textarea {
-  padding: 10px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+padding: 10px;
+font-size: 1.2em;
+border: none;
+border-radius: 5px;
+margin-top: 10px;
+margin-bottom: 20px;
 }
 
 textarea {
-  height: 150px;
+height: 150px;
 }
 
 button[type=submit] {
-  background-color: #2980b9;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button[type=submit]:hover {
-  background-color: #1c6ca9;
-}
-
-.social-media {
-  font-size: 1.2em;
-}
-
-/* Custom styles for personal portfolio */
-
-/* Mobile compatibility */
-@media only screen and (max-width: 600px) {
-  /* Navigation bar */
-  nav ul {
-    display: none;
-  }
-
-  .toggle-nav {
-    display: flex;
-  }
-
-  .toggle-nav:before {
-    content: '\f0c9';
-    font-family: FontAwesome;
-    font-size: 24px;
-    color: #ffffff;
-  }
-
-  nav ul.show {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #333333;
-    padding: 10px 0;
-  }
-
-  nav ul li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #ffffff;
-    height: auto;
-    line-height: 1.5;
-    transition: background-color 0.3s ease;
-  }
-
-  nav ul li a:hover {
-    background-color: #ffc107;
-  }
-
-  nav ul li.active a {
-    background-color: #ffc107;
-  }
-}
-}
+background-color: #2980b9;
+color: #ffffff;
+border: none;
+border-radius: 5px;
+padding: 10px 20
