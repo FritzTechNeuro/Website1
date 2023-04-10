@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -28,13 +28,13 @@
         <h2>Blog</h2>
         <ul>
           <li>
-            <h3>Week of [Date]</h3>
+            <h3>Week of <span id="week-of"></span></h3>
             <h4>Neuroscience Literature Review</h4>
             <p id="abstract"></p>
             <p><a id="article-link" href="#">Read more</a></p>
           </li>
           <li>
-            <h3>Week of [Date]</h3>
+            <h3>Week of <span id="week-of"></span></h3>
             <h4>Journal Entry</h4>
             <p>[Reflection on current neuroscience research or personal experience]</p>
           </li>
@@ -44,23 +44,36 @@
     </main>
 
     <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
-   <script>
-  const articleLink = document.getElementById("article-link");
-  const abstract = document.getElementById("abstract");
+    <script>
+      const articleLink = document.getElementById("article-link");
+      const abstract = document.getElementById("abstract");
+      const weekOf = document.getElementById("week-of");
 
-  articleLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    const url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=35352057"; // Replace this with the actual PubMed article ID
-    fetch(url)
-      .then(response => response.text())
-      .then(data => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data, "text/xml");
-        const title = doc.querySelector("ArticleTitle").textContent;
-        const authors = Array.from(doc.querySelectorAll("Author"))
-          .map(author => `${author.querySelector("LastName").textContent} ${author.querySelector("Initials").textContent}`)
-          .join(", ");
-        const abstractText = doc.querySelector("AbstractText").textContent;
+      // Function to calculate the Monday of the current week
+      function getMondayOfWeek() {
+        const today = new Date();
+        const dayOfWeek = today.getDay();
+        const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // adjust when day is sunday
+        return new Date(today.setDate(diff));
+      }
+
+      // Set the week of date to Monday of the current week
+      weekOf.textContent = getMondayOfWeek().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+
+      articleLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        const url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=35352057"; // Replace this with the actual PubMed article ID
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/xml");
+            const title = doc.querySelector("ArticleTitle").textContent;
+            const authors = Array.from(doc.querySelectorAll("Author"))
+              .map(author => `${author.querySelector("LastName").textContent} ${author.querySelector("Initials").textContent}`)
+              .join(", ");
+            const abstractText = doc.querySelector("AbstractText").textContent
+
         abstract.innerHTML = `<strong>${title}</strong><br>${authors}<br>${abstractText}`;
       })
       .catch(error => {
