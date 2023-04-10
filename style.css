@@ -163,59 +163,60 @@ button[type=submit]:hover {
 
 /* Mobile compatibility */
 @media only screen and (max-width: 600px) {
-/* Navigation bar */
-nav {
-flex-wrap: wrap;
-height: auto;
-}
+  /* Navigation bar */
+  nav ul {
+    display: none;
+  }
 
-nav ul {
-flex-direction: column;
-margin-top: 60px;
-display: none;
-}
+  .toggle-nav {
+    display: flex;
+  }
 
-nav ul.show {
-display: flex;
-}
+  .toggle-nav:before {
+    content: '\f0c9';
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: #ffffff;
+  }
 
-nav ul li {
-margin-right: 0;
-margin-bottom: 10px;
-}
+  nav ul.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333333;
+    padding: 10px 0;
+  }
 
-nav ul li a {
-background-color: #333333;
-color: #ffffff;
-height: 40px;
-line-height: 40px;
-transition: background-color 0.3s ease;
-}
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 
-nav ul li a:hover {
-background-color: #ffc107;
-}
+  nav ul li:last-child {
+    margin-right: 0;
+  }
 
-nav ul li.active a {
-background-color: #ffc107;
-}
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    height: auto;
+    line-height: 1.5;
+    transition: background-color 0.3s ease;
+  }
 
-.toggle-nav {
-height: 60px;
-width: 60px;
-display: flex;
-justify-content: center;
-align-items: center;
-position: absolute;
-top: 0;
-right: 0;
-cursor: pointer;
-}
+  nav ul li a:hover {
+    background-color: #ffc107;
+  }
 
-.toggle-nav:before {
-content: '\f0c9';
-font-family: FontAwesome;
-font-size: 24px;
-color: #ffffff;
+  nav ul li.active a {
+    background-color: #ffc107;
+  }
 }
 }
