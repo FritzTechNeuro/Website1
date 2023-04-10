@@ -28,13 +28,13 @@
         <h2>Blog</h2>
         <ul>
           <li>
-            <h3>Week of <span id="week-of"></span></h3>
+            <h3>Week of <span id="week-of-1"></span></h3>
             <h4>Neuroscience Literature Review</h4>
-            <p id="abstract"></p>
-            <p><a id="article-link" href="#">Read more</a></p>
+            <p id="abstract-1"></p>
+            <p><a id="article-link-1" href="#">Read more</a></p>
           </li>
           <li>
-            <h3>Week of <span id="week-of"></span></h3>
+            <h3>Week of <span id="week-of-2"></span></h3>
             <h4>Journal Entry</h4>
             <p>[Reflection on current neuroscience research or personal experience]</p>
           </li>
@@ -45,9 +45,10 @@
 
     <script src="https://kit.fontawesome.com/e7c5141271.js"></script>
     <script>
-      const articleLink = document.getElementById("article-link");
-      const abstract = document.getElementById("abstract");
-      const weekOf = document.getElementById("week-of");
+      const articleLink1 = document.getElementById("article-link-1");
+      const abstract1 = document.getElementById("abstract-1");
+      const weekOf1 = document.getElementById("week-of-1");
+      const weekOf2 = document.getElementById("week-of-2");
 
       // Function to calculate the Monday of the current week
       function getMondayOfWeek() {
@@ -58,9 +59,10 @@
       }
 
       // Set the week of date to Monday of the current week
-      weekOf.textContent = getMondayOfWeek().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+      weekOf1.textContent = getMondayOfWeek().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+      weekOf2.textContent = getMondayOfWeek().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
 
-      articleLink.addEventListener("click", function(event) {
+      articleLink1.addEventListener("click", function(event) {
         event.preventDefault();
         const url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&retmode=xml&id=35352057"; // Replace this with the actual PubMed article ID
         fetch(url)
